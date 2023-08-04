@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Smusic.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Smusic.Controllers
 {
@@ -13,10 +15,10 @@ namespace Smusic.Controllers
             _dbContext = dbContext;           
         }
         // GET: SongsController1
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var data = _dbContext.Songs.ToList();
-            return View();
+            var allSongs = await _dbContext.Songs.ToListAsync();
+            return View(allSongs);
         }
 
         // GET: SongsController1/Details/5

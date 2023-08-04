@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\Smusic.csproj": {}
+    "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\Smusic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\Smusic.csproj": {
+    "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\Smusic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\Smusic.csproj",
+        "projectUniqueName": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\Smusic.csproj",
         "projectName": "Smusic",
-        "projectPath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\Smusic.csproj",
+        "projectPath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\Smusic.csproj",
         "packagesPath": "C:\\Users\\ksona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\obj\\",
+        "outputPath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ksona\\AppData\\Roaming\\NuGet\\NuGet.Config",

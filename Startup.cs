@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Smusic.Data;
+using Smusic.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +28,13 @@ namespace Smusic
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = SmusicDb;"));
+
+            services.AddScoped<IActorsService , ActorsService>(); 
         }
        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env ,AppDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , AppDbContext _dbcontext)
         {
             if (env.IsDevelopment())
             {
@@ -43,7 +46,8 @@ namespace Smusic
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            dbContext.Database.EnsureCreated(); 
+            _dbcontext.Database.EnsureCreated();
+           
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -57,6 +61,8 @@ namespace Smusic
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            //seed data if no data in the begining
+            AppDbInitiliser.seed(app);
         }
     }
 }

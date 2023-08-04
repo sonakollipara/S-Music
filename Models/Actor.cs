@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Smusic.Models
 {
@@ -6,8 +7,14 @@ namespace Smusic.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name ="ProfilePictureURL")]
         public string ProfilePictureURL { get; set; }
+        [Display(Name ="FullName")]
         public string FullName { get; set; }
+        [Display(Name ="Biography")]
         public string Bio { get; set; }
+        //relationships
+            
+        public List<Album_Actor> Albums_Actors { get; set; }
     }
 }

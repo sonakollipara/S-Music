@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9M4gev7ZKYRUbUw4q3Y/VDifJ4SBpYCAoYRy0dN1GhtywofVA75EbwZLvoiGnvyV0EKCpfh6Qhs8vjd0r5U7Ug==",
+  "dgSpecHash": "v60S5nImPbxk7a9F0KJwhweZcTOLNNmT5j4CHFm8kxGiahKikvBem/KkGDTuZ42XC0cTZhjj3mLh0avga5sW2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\Smusic\\Smusic.csproj",
+  "projectFilePath": "C:\\Users\\ksona\\OneDrive\\Desktop\\aug2023practice\\SMusic\\Smusic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ksona\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ksona\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

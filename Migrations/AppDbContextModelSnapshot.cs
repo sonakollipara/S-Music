@@ -18,6 +18,77 @@ namespace Smusic.Migrations
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Smusic.Models.Actor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfilePictureURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Actors");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Album", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ActorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AlbumCategory")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descrption")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SongId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SongName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SongId");
+
+                    b.ToTable("Albums");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Album_Actor", b =>
+                {
+                    b.Property<int>("AlbumId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ActorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AlbumId", "ActorId");
+
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("Album_Actor");
+                });
+
             modelBuilder.Entity("Smusic.Models.Song", b =>
                 {
                     b.Property<int>("Id")
@@ -28,12 +99,60 @@ namespace Smusic.Migrations
                     b.Property<string>("Language")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SongURL")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Songs");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Album", b =>
+                {
+                    b.HasOne("Smusic.Models.Song", "Songs")
+                        .WithMany("Albums")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Songs");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Album_Actor", b =>
+                {
+                    b.HasOne("Smusic.Models.Actor", "Actor")
+                        .WithMany("Albums_Actors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Smusic.Models.Album", "Album")
+                        .WithMany("Albums_Actors")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Album");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Actor", b =>
+                {
+                    b.Navigation("Albums_Actors");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Album", b =>
+                {
+                    b.Navigation("Albums_Actors");
+                });
+
+            modelBuilder.Entity("Smusic.Models.Song", b =>
+                {
+                    b.Navigation("Albums");
                 });
 #pragma warning restore 612, 618
         }
